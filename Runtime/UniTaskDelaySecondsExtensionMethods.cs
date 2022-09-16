@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Kogane
@@ -16,10 +17,11 @@ namespace Kogane
         /// </summary>
         public static UniTask DelaySeconds
         (
-            this GameObject  self,
-            double           seconds,
-            bool             ignoreTimeScale = false,
-            PlayerLoopTiming delayTiming     = PlayerLoopTiming.Update
+            this GameObject   self,
+            double            seconds,
+            bool              ignoreTimeScale   = false,
+            PlayerLoopTiming  delayTiming       = PlayerLoopTiming.Update,
+            CancellationToken cancellationToken = default
         )
         {
             return UniTask.DelaySeconds
@@ -27,7 +29,8 @@ namespace Kogane
                 gameObject: self,
                 seconds: seconds,
                 ignoreTimeScale: ignoreTimeScale,
-                delayTiming: delayTiming
+                delayTiming: delayTiming,
+                cancellationToken: cancellationToken
             );
         }
 
@@ -36,10 +39,11 @@ namespace Kogane
         /// </summary>
         public static UniTask DelaySeconds
         (
-            this Component   self,
-            double           seconds,
-            bool             ignoreTimeScale = false,
-            PlayerLoopTiming delayTiming     = PlayerLoopTiming.Update
+            this Component    self,
+            double            seconds,
+            bool              ignoreTimeScale   = false,
+            PlayerLoopTiming  delayTiming       = PlayerLoopTiming.Update,
+            CancellationToken cancellationToken = default
         )
         {
             return UniTask.DelaySeconds
@@ -47,7 +51,8 @@ namespace Kogane
                 component: self,
                 seconds: seconds,
                 ignoreTimeScale: ignoreTimeScale,
-                delayTiming: delayTiming
+                delayTiming: delayTiming,
+                cancellationToken: cancellationToken
             );
         }
 
@@ -56,10 +61,11 @@ namespace Kogane
         /// </summary>
         public static UniTask DelaySeconds
         (
-            this GameObject  self,
-            double           seconds,
-            DelayType        delayType,
-            PlayerLoopTiming delayTiming = PlayerLoopTiming.Update
+            this GameObject   self,
+            double            seconds,
+            DelayType         delayType,
+            PlayerLoopTiming  delayTiming       = PlayerLoopTiming.Update,
+            CancellationToken cancellationToken = default
         )
         {
             return UniTask.DelaySeconds
@@ -67,7 +73,8 @@ namespace Kogane
                 gameObject: self,
                 seconds: seconds,
                 delayType: delayType,
-                delayTiming: delayTiming
+                delayTiming: delayTiming,
+                cancellationToken: cancellationToken
             );
         }
 
@@ -76,10 +83,11 @@ namespace Kogane
         /// </summary>
         public static UniTask DelaySeconds
         (
-            this Component   self,
-            double           seconds,
-            DelayType        delayType,
-            PlayerLoopTiming delayTiming = PlayerLoopTiming.Update
+            this Component    self,
+            double            seconds,
+            DelayType         delayType,
+            PlayerLoopTiming  delayTiming       = PlayerLoopTiming.Update,
+            CancellationToken cancellationToken = default
         )
         {
             return UniTask.DelaySeconds
@@ -87,7 +95,8 @@ namespace Kogane
                 component: self,
                 seconds: seconds,
                 delayType: delayType,
-                delayTiming: delayTiming
+                delayTiming: delayTiming,
+                cancellationToken: cancellationToken
             );
         }
     }
