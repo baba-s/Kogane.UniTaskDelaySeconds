@@ -49,6 +49,8 @@ namespace Cysharp.Threading.Tasks
             CancellationToken cancellationToken = default
         )
         {
+            if ( gameObject == null ) throw new OperationCanceledException();
+
             if ( cancellationToken == default )
             {
                 return DelaySeconds
@@ -84,6 +86,8 @@ namespace Cysharp.Threading.Tasks
             CancellationToken cancellationToken = default
         )
         {
+            if ( gameObject == null ) throw new OperationCanceledException();
+
             if ( cancellationToken == default )
             {
                 return DelaySeconds
@@ -119,6 +123,8 @@ namespace Cysharp.Threading.Tasks
             CancellationToken cancellationToken = default
         )
         {
+            if ( component == null ) throw new OperationCanceledException();
+
             return DelaySeconds
             (
                 gameObject: component.gameObject,
@@ -138,6 +144,8 @@ namespace Cysharp.Threading.Tasks
             CancellationToken cancellationToken = default
         )
         {
+            if ( component == null ) throw new OperationCanceledException();
+
             return DelaySeconds
             (
                 gameObject: component.gameObject,
