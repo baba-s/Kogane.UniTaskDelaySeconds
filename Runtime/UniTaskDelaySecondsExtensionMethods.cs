@@ -59,6 +59,30 @@ namespace Kogane
         /// <summary>
         /// 指定された秒数待機します
         /// </summary>
+        public static UniTask DelaySecondsIf
+        (
+            this Component    self,
+            bool              condition,
+            double            seconds,
+            bool              ignoreTimeScale   = false,
+            PlayerLoopTiming  delayTiming       = PlayerLoopTiming.Update,
+            CancellationToken cancellationToken = default
+        )
+        {
+            if ( !condition ) return UniTask.CompletedTask;
+
+            return self.DelaySeconds
+            (
+                seconds: seconds,
+                ignoreTimeScale: ignoreTimeScale,
+                delayTiming: delayTiming,
+                cancellationToken: cancellationToken
+            );
+        }
+
+        /// <summary>
+        /// 指定された秒数待機します
+        /// </summary>
         public static UniTask DelaySeconds
         (
             this GameObject   self,
